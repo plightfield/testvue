@@ -2,12 +2,11 @@ import { ref, reactive, onUnmounted, watch, toRaw } from 'vue'
 import { defineStore } from 'pinia'
 import { v4 as uuid } from 'uuid'
 import dayjs from 'dayjs'
-import { todoScheduler$ } from '../shared/scheduler'
+import { todoScheduler$ } from '../../shared/scheduler'
 import { Subject, takeUntil, tap } from 'rxjs'
 import { ElMessage } from 'element-plus'
 import localforage from 'localforage'
-
-const sortTag = () => dayjs().valueOf() * 10000 + Math.trunc(Math.random() * 10000)
+import { sortTag } from '@/shared/utils'
 
 export const initialValues = [
   {

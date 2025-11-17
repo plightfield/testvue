@@ -1,44 +1,18 @@
-# testvue
+# 演示 DDD Vue js 开发
 
-This template should help get you started developing with Vue 3 in Vite.
+需求列举：
 
-## Recommended IDE Setup
+1. 输入内容添加待办事项
+2. 添加后的待办事项，默认生效时间为当前时间 10 分钟后，可以进行修改
+3. 待办事项可以归类为不同颜色，并标记是否紧急
+4. 待办事项有 个状态：未激活，等待中，延期，已完成
+5. 刚刚添加的待办事项状态为未激活，当前时间超过其设定时间为等待中，超过10分钟后（演示时间改短）为延期，点击完成按钮后为已完成
+6. 待办清单内，待办按照是否是今天的待办，是否完成，紧急程度，生效时间排序
+7. 待办清单有一个标题，一个待办清单内有多个待办
+8. 待办清单也会有多个，按照创建时间排序，并且可以手动更改顺序
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+开发按照领域文件夹排列：
 
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+1. 每个项目必有一个 app 文件夹（**核心域**），shared 文件夹（**支撑域**）
+2. app 文件夹下必定是**树形结构**，其下文件名全部以业务名称命名，单数为业务名，带 s 后缀为**集合逻辑聚合簇**
+3. 后缀为 Store 的服务（全局组合函数）为**聚合根**
