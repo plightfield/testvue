@@ -8,7 +8,10 @@ export default defineStore('todos', () => {
   const store = useTodoListStore()
   const todoLists = useTodoLists()
   const displayList = computed(() => {
-    const list = store.getTodoList(todoLists.selectedId)?.todos || []
+    const now = dayjs()
+    const list = (store.getTodoList(todoLists.selectedId)?.todos || []).filter((item) =>
+      dayjs(item.time).isSame(now, 'day'),
+    )
     const emergencies = []
     const activeds = []
     const finisheds = []
