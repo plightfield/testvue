@@ -17,7 +17,7 @@ export default defineComponent(() => {
         <TodoUpdate />
       </ElDialog>
       {todos.displayList.map((item) => (
-        <div className="p-2 flex flex-col">
+        <div className="p-2 flex flex-col" key={item.id}>
           <div className="shadow-lg p-2 rounded bg-white">
             <div className="flex">
               <div className="w-[120px] flex gap-2">
